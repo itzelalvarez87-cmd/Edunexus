@@ -4,86 +4,229 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EduNexus | CECyTEM Villa Victoria</title>
-
 <style>
 :root{
-  --fondo:#07111f;
-  --panel:#101f35;
-  --panel2:#172b46;
+  --fondo:#050b16;
+  --panel:#0d192e;
+  --panel2:#142544;
   --azul:#2878ff;
-  --celeste:#35d5ff;
+  --celeste:#00f2fe;
+  --morado:#9d4edd;
   --blanco:#f4f7ff;
-  --gris:#aab8cc;
-  --borde:#29415f;
-  --neon:#00e5ff;
+  --gris:#b8c7e0;
+  --borde:#284b7a;
+  --neon:#00f2fe;
 }
 *{box-sizing:border-box}
+
+@keyframes sombraViva {
+  0% {
+    box-shadow: 0 0 18px rgba(0, 242, 254, 0.35), 0 0 36px rgba(40, 120, 255, 0.25);
+    border-color: #00f2fe;
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(157, 78, 221, 0.55), 0 0 52px rgba(0, 242, 254, 0.35);
+    border-color: #c77dff;
+  }
+  100% {
+    box-shadow: 0 0 18px rgba(0, 242, 254, 0.35), 0 0 36px rgba(40, 120, 255, 0.25);
+    border-color: #00f2fe;
+  }
+}
+@keyframes sombraViva {
+  0% {
+    box-shadow: 0 0 18px rgba(0, 242, 254, 0.35), 0 0 36px rgba(40, 120, 255, 0.25);
+    border-color: #00f2fe;
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(157, 78, 191, 0.55), 0 0 52px rgba(0, 242, 254, 0.35);
+    border-color: #c77dff;
+  }
+  100% {
+    box-shadow: 0 0 18px rgba(0, 242, 254, 0.35), 0 0 36px rgba(40, 120, 255, 0.25);
+    border-color: #00f2fe;
+  }
+}
+
+@keyframes flasheoTitulo {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 10px rgba(0, 242, 254, 0.55));
+    transform: scale(1);
+  }
+  25% {
+    filter: brightness(1.35) drop-shadow(0 0 22px rgba(255, 77, 166, 0.85));
+    transform: scale(1.02);
+  }
+  50% {
+    filter: brightness(1.45) drop-shadow(0 0 26px rgba(255, 214, 10, 0.9));
+    transform: scale(1.03);
+  }
+  75% {
+    filter: brightness(1.35) drop-shadow(0 0 22px rgba(0, 242, 254, 0.9));
+    transform: scale(1.02);
+  }
+}
+
 body{
   margin:0;
-  font-family:Arial,sans-serif;
-  background:linear-gradient(#07111f99,#07111f99),url("/static/img/cecyto2.jpeg") center/cover fixed;
+  font-family:'Segoe UI', Arial, sans-serif;
+  background:linear-gradient(rgba(5, 11, 22, 0.72), rgba(10, 25, 49, 0.78)), url("/static/img/cecyto2.jpeg") center/cover fixed;
   color:var(--blanco);
   min-height:100vh;
-}   |
+}
+
 header{
   text-align:center;
-  padding:25px 15px;
-  background:#08182b;
-  border-bottom:2px solid var(--azul);
+  padding:26px 15px;
+  background:linear-gradient(90deg, #09162e, #1b1548, #092a46, #09162e);
+  border-bottom:2px solid var(--celeste);
+  box-shadow: 0 6px 28px rgba(0, 242, 254, 0.35), 0 0 40px rgba(157, 78, 221, 0.25);
+  transition: all 0.3s ease;
 }
-header h1{margin:0;color:var(--celeste)}
-header p{color:var(--gris)}
-nav{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:8px;
-  padding:15px;
-  background:#0b1b30;
+header h1{
+  margin:0;
+  background: linear-gradient(90deg, #00f2fe, #ff4da6, #ffd60a, #4facfe, #c77dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.15rem;
+  font-weight: 900;
+  animation: flasheoTitulo 2.6s infinite ease-in-out;
 }
+header p{color:var(--gris); margin: 6px 0;}
+nav#menu{
+  position:fixed !important;
+  left:0 !important;
+  top:0 !important;
+  height:100vh !important;
+  width:265px !important;
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  align-content:start !important;
+  gap:12px !important;
+  padding:18px 14px !important;
+  background:linear-gradient(180deg, #081224 0%, #101d3b 50%, #091326 100%) !important;
+  border-right:2px solid var(--celeste) !important;
+  box-shadow: 6px 0 30px rgba(0, 242, 254, 0.32) !important;
+  z-index:999 !important;
+  overflow-y:auto !important;
+}
+
+nav#menu button{
+  width:100% !important;
+  aspect-ratio:1 / 1 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:6px !important;
+  font-size:12.5px !important;
+  font-weight:800 !important;
+  letter-spacing:0.3px !important;
+  color:#ffffff !important;
+  background:linear-gradient(135deg, #16325c 0%, #1f4287 50%, #3a1c71 100%) !important;
+  background-size: 200% 200% !important;
+  border:1.5px solid #35d5ff !important;
+  border-radius:18px !important;
+  cursor:pointer !important;
+  box-shadow:0 4px 15px rgba(0, 242, 254, 0.25), inset 0 0 10px rgba(255,255,255,0.08) !important;
+  transition:all 0.25s ease !important;
+  text-align:center !important;
+  padding:8px !important;
+}
+
+nav#menu button:hover{
+  transform:translateY(-4px) scale(1.04) !important;
+  background:linear-gradient(135deg, #00c6ff 0%, #0072ff 50%, #9d4edd 100%) !important;
+  border-color:#ffffff !important;
+  box-shadow:0 0 22px rgba(0, 242, 254, 0.8), 0 0 35px rgba(157, 78, 221, 0.6) !important;
+}
+
+body:has(nav#menu:not(.hidden)) header,
+body:has(nav#menu:not(.hidden)) main,
+body:has(nav#menu:not(.hidden)) footer{
+  margin-left:265px !important;
+  width:calc(100% - 265px) !important;
+}
+
+nav#menu.hidden{
+  display:none !important;
+}
+
 button{
-  border:0;
-  border-radius:9px;
+  border:1px solid rgba(0, 242, 254, 0.45);
+  border-radius:10px;
   padding:11px 16px;
-  background:var(--azul);
+  background:linear-gradient(135deg, #2878ff, #00b4d8);
   color:white;
   cursor:pointer;
   font-weight:bold;
+  box-shadow: 0 4px 14px rgba(0, 180, 216, 0.35);
+  transition: all 0.25s ease;
 }
-button:hover{background:#155bd0}
-button:disabled{opacity:.5;cursor:not-allowed}
-main{width:min(1100px,94%);margin:25px auto}
+button:hover{
+  transform: translateY(-2px);
+  background:linear-gradient(135deg, #00f2fe, #4facfe);
+  color:#041022;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.75);
+}
+button:disabled{opacity:.5;cursor:not-allowed;transform:none}
+
+main{
+  max-width:1050px;
+  margin:25px auto;
+  padding:0 20px;
+  transition: all 0.3s ease;
+}
 .page{display:none}
-.page.active{display:block}
-.card,.panel{
-  background:var(--panel);
-  border:1px solid var(--borde);
-  border-radius:14px;
-  padding:20px;
-  margin:15px 0;
-  box-shadow:0 5px 18px #0003;
+.page.active{display:block; animation: aparecer 0.35s ease;}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
+.card,.panel{
+  background:rgba(13, 25, 46, 0.92);
+  backdrop-filter: blur(8px);
+  border:1.5px solid var(--celeste);
+  border-radius:16px;
+  padding:22px;
+  margin:18px 0;
+  animation: sombraViva 5s infinite ease-in-out;
+}
+
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:15px;
+  margin-top:15px;
 }
+
 input,select,textarea{
   width:100%;
   padding:12px;
   margin:7px 0 14px;
-  border:1px solid var(--borde);
-  border-radius:8px;
-  background:#09182a;
+  border:1.5px solid var(--borde);
+  border-radius:10px;
+  background:#071224;
   color:white;
+  transition: 0.25s;
 }
+input:focus, select:focus, textarea:focus{
+  outline:none;
+  border-color:var(--celeste);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.45);
+}
+
 textarea{min-height:110px;resize:vertical}
-label{display:block;color:var(--gris)}
+label{display:block;color:var(--gris);font-weight:600}
 .hidden{display:none!important}
 .mensaje{padding:10px;border-radius:8px;margin:10px 0}
-.good{background:#124d37;color:#baffd9}
-.bad{background:#5b2029;color:#ffd0d5}
-<style>
+.good{background:#124d37;color:#baffd9;border:1px solid #2ecc71}
+.bad{background:#5b2029;color:#ffd0d5;border:1px solid #ff4d6d}
+.btn-regresar{display:block;margin:0 0 12px auto;background:#172b46;border:1px solid var(--celeste)}
+.btn-regresar:hover{background:#24466d;color:white}
+
 .option{
   display:block;
   width:100%;
@@ -92,7 +235,8 @@ label{display:block;color:var(--gris)}
   background:var(--panel2);
   border:1px solid var(--borde);
 }
-.option:hover{background:#24466d}
+.option:hover{background:#24466d;color:white}
+
 .stats{
   display:flex;
   flex-wrap:wrap;
@@ -100,26 +244,33 @@ label{display:block;color:var(--gris)}
   gap:15px;
 }
 .stat{
-  background:var(--panel2);
-  border-radius:10px;
+  background:linear-gradient(145deg, #13274a, #0b1830);
+  border:1px solid var(--celeste);
+  border-radius:12px;
   padding:15px;
-  min-width:120px;
+  min-width:130px;
   text-align:center;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
 }
-.stat strong{display:block;font-size:25px;color:var(--celeste)}
+.stat strong{display:block;font-size:26px;color:var(--celeste)}
+
 .avatar-option{
   font-size:25px;
   margin:4px;
   background:var(--panel2);
 }
-.avatar-option.selected{outline:3px solid var(--celeste)}
+.avatar-option.selected{outline:3px solid var(--celeste); box-shadow: 0 0 15px var(--celeste);}
+
 footer{
   text-align:center;
   padding:20px;
   color:var(--gris);
-  background:#08182b;
+  background:#071326;
+  border-top:1px solid var(--borde);
   margin-top:35px;
+  transition: all 0.3s ease;
 }
+
 #certificado{
   background:white;
   color:#172033;
@@ -127,28 +278,24 @@ footer{
   text-align:center;
   border:8px double #2878ff;
 }
-#certificado h2{color:#155bd0}
-@media(max-width:600px){
-  nav button{flex:1 1 40%}
-  main{width:94%}
-}
 
-/* ESTILOS EXCLUSIVOS DE NEXUS PLAY */
 .nexus-play{
-  background:#080d19;
+  background:linear-gradient(160deg, #080f1e, #111b36);
   color:#f4f7ff;
-  border:1px solid #263b5c;
-  border-radius:16px;
-  padding:20px;
+  border:2px solid var(--celeste);
+  border-radius:18px;
+  padding:22px;
   text-align:center;
+  animation: sombraViva 5s infinite ease-in-out;
 }
-.nexus-play h2,.nexus-play h3{color:#35d5ff}
+.nexus-play h2,.nexus-play h3{color:#00f2fe}
 .nexus-play .np-panel{
-  background:#111d32;
-  border:1px solid #29415f;
-  border-radius:12px;
+  background:#111d36;
+  border:1px solid #35d5ff66;
+  border-radius:14px;
   padding:18px;
   margin:15px 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 .nexus-play .np-grid{
   display:grid;
@@ -161,11 +308,15 @@ footer{
   border:1px solid #36577e;
   margin:5px 0;
 }
-.nexus-play .np-option:hover{background:#28517e}
+.nexus-play .np-option:hover{background:#28517e;color:white}
+.nexus-
+color:white;
+}
 .nexus-play .np-hidden{display:none!important}
 .nexus-play .np-stat{
   display:inline-block;
   background:#172b46;
+  border:1px solid var(--celeste);
   border-radius:8px;
   padding:10px;
   margin:5px;
@@ -175,7 +326,7 @@ footer{
   font-size:24px;
   background:#1a3150;
 }
-.nexus-play .memory-card.matched{background:#176143}
+.nexus-play .memory-card.matched{background:#176143;border-color:#2ecc71}
 .nexus-play .timer-track{
   height:10px;
   background:#263b5c;
@@ -185,95 +336,112 @@ footer{
 .nexus-play #timerBar{
   height:100%;
   width:100%;
-  background:#35d5ff;
+  background:linear-gradient(90deg, #00f2fe, #9d4edd);
+}
+
+@media(max-width:768px){
+  nav#menu{
+    position:relative !important;
+    width:100% !important;
+    height:auto !important;
+    grid-template-columns:repeat(3, 1fr) !important;
+    border-right:0 !important;
+    border-bottom:2px solid var(--celeste) !important;
+  }
+  nav#menu button{aspect-ratio:auto !important; padding:12px 6px !important;}
+  body:has(nav#menu:not(.hidden)) header,
+  body:has(nav#menu:not(.hidden)) main,
+  body:has(nav#menu:not(.hidden)) footer{
+    margin-left:0 !important;
+    width:100% !important;
+  }
 }
 </style>
 </head>
 
 <body>
 <header>
-  <h1>📚 Aprende Más | EduNexus</h1>
+  <h1>&#128218; Aprende M&aacute;s | EduNexus</h1>
   <p>CECyTEM Villa Victoria</p>
   <p>Aprende, practica, juega y supera tus retos.</p>
 </header>
 
 <nav id="menu" class="hidden">
-  <button onclick="mostrar('inicio')">Inicio</button>
-  <button onclick="mostrar('materias')">Materias</button>
-  <button onclick="mostrar('practicas');cargarPracticas()">Prácticas</button>
-  <button onclick="mostrar('juegos')">Juegos</button>
-  <button onclick="mostrar('videos')">Videos</button>
-  <button onclick="mostrar('examen')">Exámenes</button>
-  <button onclick="mostrar('records');cargarRecords()">Récords</button>
-  <button onclick="mostrar('plan')">Plan de estudio</button>
-  <button onclick="mostrar('apuntes')">Apuntes</button>
-  <button onclick="mostrar('perfil')">Perfil</button>
-  <button onclick="salir()">Cerrar sesión</button>
+  <button onclick="mostrar('inicio')">&#127968;<br>Inicio</button>
+  <button onclick="mostrar('materias')">&#128216;<br>Materias</button>
+  <button onclick="mostrar('juegos')">&#127918;<br>Juegos</button>
+  <button onclick="mostrar('seguimiento');renderSeguimiento()">&#128202;<br>Seguimiento</button>
+  <button onclick="mostrar('videos')">&#127916;<br>Videos</button>
+  <button onclick="mostrar('examen')">&#128221;<br>Ex&aacute;menes</button>
+  <button onclick="mostrar('records');cargarRecords()">&#127942;<br>R&eacute;cords</button>
+  <button onclick="mostrar('apuntes')">&#128466;<br>Apuntes</button>
+  <button onclick="mostrar('perfil')">&#128100;<br>Perfil</button>
+  <button onclick="salir()">&#128682;<br>Salir</button>
 </nav>
-
 <main>
 
 <section id="acceso" class="page active">
   <div class="card" style="max-width:480px;margin:20px auto">
     <h2 style="text-align:center">Bienvenido a EduNexus</h2>
-
     <div id="registroVista">
+      <button type="button" class="btn-regresar" onclick="mostrarLogin()" aria-label="Regresar al inicio de sesi&oacute;n">&larr; Regresar</button>
       <h3>Crear una cuenta</h3>
       <form id="registroForm">
         <label>Nombre completo</label>
         <input id="regNombre" required>
-
         <label>Usuario</label>
         <input id="regUsuario" required>
-
-        <label>Correo electrónico (opcional)</label>
+        <label>Correo electr&oacute;nico (opcional)</label>
         <input id="regCorreo" type="email">
-
-        <label>Contraseña</label>
+        <label>Contrase&ntilde;a</label>
         <input id="regClave" type="password" required minlength="4">
-
+        <label>Rectificar contrase&ntilde;a</label>
+        <input id="regClaveConfirmar" type="password" required minlength="4">
+        <p id="mensajeClave" class="mensaje bad hidden"></p>
         <label>Nivel escolar</label>
         <select id="regNivel" required>
           <option value="Secundaria">Secundaria</option>
           <option value="Preparatoria">Preparatoria</option>
         </select>
-
-        <label>Elige tu avatar</label>
-        <div id="avataresRegistro">
-          <button type="button" class="avatar-option selected" onclick="elegirAvatar('👩🏻‍🎓',this)">👩🏻‍🎓</button>
-          <button type="button" class="avatar-option" onclick="elegirAvatar('👨🏻‍🎓',this)">👨🏻‍🎓</button>
-          <button type="button" class="avatar-option" onclick="elegirAvatar('🦊',this)">🦊</button>
-          <button type="button" class="avatar-option" onclick="elegirAvatar('🐼',this)">🐼</button>
+        <label>Foto de perfil desde tus archivos (opcional, m&aacute;x. 2 MB)</label>
+        <input id="regFotoArchivo" type="file" accept="image/png,image/jpeg,image/webp">
+        <div id="vistaPreviaRegistroWrap" class="hidden" style="text-align:center;margin:10px 0;">
+          <img id="vistaPreviaRegistro" alt="Vista previa de foto de perfil" style="width:95px;height:95px;object-fit:cover;border-radius:50%;border:2px solid var(--celeste)">
+          <div><button type="button" onclick="limpiarFotoRegistro()" style="margin-top:8px;padding:6px 12px;font-size:12px;">Quitar foto</button></div>
         </div>
-
-        <button type="submit" style="width:100%">Registrarme y entrar</button>
+        <label>O elige tu avatar</label>
+        <div id="avataresRegistro">
+          <button type="button" class="avatar-option selected" onclick="elegirAvatar('&#128105;&#127995;&#8205;&#127891;',this)">&#128105;&#127995;&#8205;&#127891;</button>
+          <button type="button" class="avatar-option" onclick="elegirAvatar('&#128104;&#127995;&#8205;&#127891;',this)">&#128104;&#127995;&#8205;&#127891;</button>
+          <button type="button" class="avatar-option" onclick="elegirAvatar('&#129418;',this)">&#129418;</button>
+          <button type="button" class="avatar-option" onclick="elegirAvatar('&#128060;',this)">&#128060;</button>
+        </div>
+        <button type="submit" style="width:100%">Registrarme</button>
       </form>
       <p id="mensajeRegistro"></p>
-      <p>¿Ya tienes cuenta?
-        <button type="button" onclick="mostrarLogin()">Iniciar sesión</button>
-      </p>
+      <p>&iquest;Ya tienes cuenta? <button type="button" onclick="mostrarLogin()">Iniciar sesi&oacute;n</button></p>
     </div>
 
     <div id="loginVista" class="hidden">
-      <h3>Iniciar sesión</h3>
+      <h3>Iniciar sesi&oacute;n</h3>
       <form id="loginForm">
         <label>Usuario</label>
         <input id="loginUsuario" required>
-        <label>Contraseña</label>
+        <label>Contrase&ntilde;a</label>
         <input id="loginClave" type="password" required>
+        <label>Foto de perfil desde tus archivos (opcional al entrar)</label>
+        <input id="loginFotoArchivo" type="file" accept="image/png,image/jpeg,image/webp">
         <button type="submit" style="width:100%">Entrar</button>
       </form>
       <p id="mensajeLogin"></p>
-      <p>¿No tienes cuenta?
-        <button type="button" onclick="mostrarRegistro()">Registrarme</button>
-      </p>
+      <p>&iquest;No tienes cuenta? <button type="button" onclick="mostrarRegistro()">Registrarme</button></p>
     </div>
   </div>
 </section>
 
 <section id="inicio" class="page">
   <div class="card">
-    <h2 id="bienvenida">¡Bienvenido!</h2>
+    <h2 id="bienvenida">&iexcl;Bienvenido!</h2>
     <p id="saludo">Comienza a aprender y acumular puntos.</p>
     <div class="stats">
       <div class="stat">Puntos<strong id="puntos">0</strong></div>
@@ -282,87 +450,106 @@ footer{
     </div>
     <div class="grid">
       <button onclick="mostrar('materias')">Ver materias</button>
-      <button onclick="mostrar('practicas');cargarPracticas()">Ir a Prácticas</button>
+      <button onclick="mostrar('practicas');cargarPracticas()">Ir a Pr&aacute;cticas</button>
       <button onclick="mostrar('examen')">Realizar examen</button>
       <button onclick="mostrar('juegos')">Entrar a NEXUS PLAY</button>
     </div>
   </div>
 </section>
-
 <section id="materias" class="page">
   <h2>Materias</h2>
   <div class="grid">
     <div class="card">
-      <h3>Matemáticas</h3>
-      <p>Practica operaciones, álgebra y razonamiento lógico.</p>
-      <button onclick="mostrar('practicas');cargarPracticas()">Repasar temas</button>
-      <button onclick="mostrar('examen')">Ir a exámenes</button>
+      <h3>Matem&aacute;ticas</h3>
+      <p>Estudia n&uacute;meros, operaciones, fracciones, porcentajes, &aacute;lgebra, ecuaciones y geometr&iacute;a.</p>
+      <h4>Temas principales</h4>
+      <ul>
+        <li>Aritm&eacute;tica y operaciones b&aacute;sicas</li>
+        <li>Fracciones, decimales y porcentajes</li>
+        <li>&Aacute;lgebra y ecuaciones</li>
+        <li>Geometr&iacute;a y funciones</li>
+      </ul>
+      <button onclick="mostrar('practicas');filtrarPractica('Mate')">Ver pr&aacute;cticas de Matem&aacute;ticas</button>
+      <button onclick="mostrar('examen')">Ir a ex&aacute;menes</button>
     </div>
     <div class="card">
-      <h3>Lengua y Comunicación</h3>
-      <p>Mejora tu comprensión lectora, ortografía y comunicación.</p>
-      <button onclick="mostrar('practicas');cargarPracticas()">Repasar temas</button>
-      <button onclick="mostrar('examen')">Ir a exámenes</button>
+      <h3>Lengua y Comunicaci&oacute;n</h3>
+      <p>Desarrolla la comprensi&oacute;n lectora, la escritura y la comunicaci&oacute;n oral y escrita.</p>
+      <h4>Temas principales</h4>
+      <ul>
+        <li>Comprensi&oacute;n lectora</li>
+        <li>Producci&oacute;n de textos</li>
+        <li>Gram&aacute;tica y ortograf&iacute;a</li>
+        <li>Tipos de textos y argumentaci&oacute;n</li>
+      </ul>
+      <button onclick="mostrar('practicas');filtrarPractica('Lengua')">Ver pr&aacute;cticas de Lengua</button>
+      <button onclick="mostrar('examen')">Ir a ex&aacute;menes</button>
     </div>
   </div>
 </section>
 
-<!-- SECCIÓN PRÁCTICAS -->
 <section id="practicas" class="page">
-  <h2>📖 Prácticas y Guía de Estudio</h2>
+  <h2>&#128214; Pr&aacute;cticas y Gu&iacute;a de Estudio</h2>
   <div class="card">
-    <p>Aquí encontrarás las explicaciones detalladas de todos los temas que vienen en los exámenes de Matemáticas y Lengua y Comunicación.</p>
+    <p>Aqu&iacute; encontrar&aacute;s las explicaciones detalladas de todos los temas que vienen en los ex&aacute;menes de Matem&aacute;ticas y Lengua y Comunicaci&oacute;n.</p>
     <div style="margin: 15px 0; display:flex; gap:10px; flex-wrap:wrap;">
       <button onclick="filtrarPractica('todas')">Ver Todos</button>
-      <button onclick="filtrarPractica('Mate')">Matemáticas</button>
-      <button onclick="filtrarPractica('Lengua')">Lengua y Comunicación</button>
+      <button onclick="filtrarPractica('Mate')">Matem&aacute;ticas</button>
+      <button onclick="filtrarPractica('Lengua')">Lengua y Comunicaci&oacute;n</button>
     </div>
     <div id="contenedorPracticas"></div>
   </div>
 </section>
-<!-- NEXUS PLAY -->
+
 <section id="juegos" class="page">
   <div class="nexus-play">
-    <h2>🎮 NEXUS PLAY</h2>
-    <p>Aprende jugando y supera tus propios retos.</p>
+    <h2>&#127918; NEXUS PLAY</h2>
+    <p>Avanza paso a paso sin tener que deslizar hacia abajo.</p>
 
     <div id="home">
-      <div class="np-panel">
-        <h3>Tu perfil de jugador</h3>
-        <h2 id="homeAvatar">👩🏻‍🎓</h2>
+      <div id="pasoJugador" class="np-panel">
+        <h3>Paso 1 de 3: Tu perfil de jugador</h3>
+        <h2 id="homeAvatar">&#128105;&#127995;&#8205;&#127891;</h2>
         <p id="homeName">Jugador</p>
         <p>Experiencia: <strong id="totalXP">0 XP</strong></p>
         <label>Nombre de jugador</label>
         <input id="playerName" placeholder="Escribe tu nombre">
         <div>
-          <button class="np-option" onclick="setAvatar('👩🏻‍🎓')">👩🏻‍🎓</button>
-          <button class="np-option" onclick="setAvatar('👨🏻‍🎓')">👨🏻‍🎓</button>
-          <button class="np-option" onclick="setAvatar('🦊')">🦊</button>
-          <button class="np-option" onclick="setAvatar('🐼')">🐼</button>
+          <button type="button" class="np-option" onclick="setAvatar('&#128105;&#127995;&#8205;&#127891;')">&#128105;&#127995;&#8205;&#127891;</button>
+          <button type="button" class="np-option" onclick="setAvatar('&#128104;&#127995;&#8205;&#127891;')">&#128104;&#127995;&#8205;&#127891;</button>
+          <button type="button" class="np-option" onclick="setAvatar('&#129418;')">&#129418;</button>
+          <button type="button" class="np-option" onclick="setAvatar('&#128060;')">&#128060;</button>
         </div>
         <h3>Selecciona tu nivel</h3>
-        <button onclick="selectLevel('Secundaria')">Secundaria</button>
-        <button onclick="selectLevel('Preparatoria')">Preparatoria</button>
+        <button type="button" onclick="selectLevel('Secundaria')">Secundaria</button>
+        <button type="button" onclick="selectLevel('Preparatoria')">Preparatoria</button>
       </div>
 
       <div id="subjects" class="np-panel np-hidden">
-        <h3>Selecciona una materia</h3>
-        <button onclick="selectSubject('mate')">Matemáticas</button>
-        <button onclick="selectSubject('lengua')">Lengua y Comunicación</button>
+        <button type="button" class="btn-regresar" onclick="volverPasoJugador()">&larr; Anterior</button>
+        <h3>Paso 2 de 3: Selecciona una materia</h3>
+        <button type="button" onclick="selectSubject('mate')">Matem&aacute;ticas</button>
+        <button type="button" onclick="selectSubject('lengua')">Lengua y Comunicaci&oacute;n</button>
       </div>
 
       <div id="modes" class="np-panel np-hidden">
-        <h3>Elige tu juego</h3>
-        <button onclick="startQuiz()">Trivia</button>
-        <button onclick="startMemory()">Memorama</button>
+        <button type="button" class="btn-regresar" onclick="volverPasoMateria()">&larr; Anterior</button>
+        <h3>Paso 3 de 3: Elige tu juego</h3>
+        <button type="button" onclick="startQuiz()">Trivia</button>
+        <button type="button" onclick="startMemory()">Memorama</button>
       </div>
 
-      <div class="np-panel">
-        <h3>🏆 Tus logros</h3>
-        <p id="t1">🔒 Primeros puntos</p>
-        <p id="t2">🔒 100 XP</p>
-        <p id="t3">🔒 300 XP</p>
-        <button onclick="resetProgress()">Reiniciar progreso de NEXUS PLAY</button>
+      <div id="logrosPanel" class="np-panel np-hidden">
+        <button type="button" class="btn-regresar" onclick="volverPasoJugador()">&larr; Regresar al inicio del juego</button>
+        <h3>&#127942; Tus logros</h3>
+        <p id="t1">&#128274; Primeros puntos</p>
+        <p id="t2">&#128274; 100 XP</p>
+        <p id="t3">&#128274; 300 XP</p>
+        <button type="button" onclick="resetProgress()">Reiniciar progreso de NEXUS PLAY</button>
+      </div>
+
+      <div style="margin-top:10px;">
+        <button type="button" onclick="abrirLogrosJuego()">Ver logros</button>
       </div>
     </div>
 
@@ -371,6 +558,8 @@ footer{
         <span class="np-stat">Nivel: <b id="gameLevel">-</b></span>
         <span class="np-stat">XP: <b id="gameXP">0</b></span>
         <span class="np-stat">Vidas: <b id="lives">3</b></span>
+        <span class="np-stat">Correctas: <b id="correctCount">0</b></span>
+        <span class="np-stat">Incorrectas: <b id="wrongCount">0</b></span>
       </div>
 
       <div id="quizArea" class="np-panel np-hidden">
@@ -388,30 +577,29 @@ footer{
       </div>
 
       <div id="result" class="np-panel np-hidden">
-        <h3>¡Juego terminado!</h3>
+        <h3>&iexcl;Juego terminado!</h3>
         <p id="resultMessage"></p>
-        <button onclick="restartGame()">Volver a jugar</button>
-        <button onclick="goHome()">Menú de NEXUS PLAY</button>
+        <button type="button" onclick="restartGame()">Volver a jugar</button>
+        <button type="button" onclick="goHome()">Men&uacute; de NEXUS PLAY</button>
       </div>
     </div>
   </div>
 </section>
-
 <section id="examen" class="page">
-  <h2>Exámenes</h2>
+  <h2>Ex&aacute;menes</h2>
   <div class="card">
     <p>Selecciona la materia para comenzar tu examen.</p>
-    <button onclick="iniciarExamen('Matemáticas')">Examen de Matemáticas</button>
-    <button onclick="iniciarExamen('Lengua y Comunicación')">Examen de Lengua</button>
+    <button type="button" onclick="iniciarExamen('Matem&aacute;ticas')">Examen de Matem&aacute;ticas</button>
+    <button type="button" onclick="iniciarExamen('Lengua y Comunicaci&oacute;n')">Examen de Lengua</button>
     <div id="zonaExamen"></div>
     <div id="zonaCertificado"></div>
   </div>
 </section>
 
 <section id="records" class="page">
-  <h2>🏆 Récords</h2>
+  <h2>&#127942; R&eacute;cords de todos los usuarios</h2>
   <div class="card">
-    <p>Consulta los mejores resultados y puntajes registrados en EduNexus.</p>
+    <p>Consulta los puntajes y r&eacute;cords registrados de todos los usuarios en EduNexus y juegos.</p>
     <div id="listaRecords">Cargando resultados...</div>
   </div>
 </section>
@@ -420,7 +608,7 @@ footer{
   <h2>Videos educativos</h2>
   <div class="card">
     <form id="videoForm">
-      <label>¿Qué tema quieres aprender?</label>
+      <label>&iquest;Qu&eacute; tema quieres aprender?</label>
       <input id="temaVideo" placeholder="Ej. ecuaciones de primer grado" required>
       <button type="submit">Buscar videos</button>
     </form>
@@ -428,26 +616,15 @@ footer{
   </div>
 </section>
 
-<section id="plan" class="page">
-  <h2>Plan de estudio</h2>
+<section id="seguimiento" class="page">
+  <h2>&#128202; Seguimiento de actividades</h2>
   <div class="card">
-    <form id="planForm">
-      <label>Materia</label>
-      <select id="planMateria" required>
-        <option value="Matemáticas">Matemáticas</option>
-        <option value="Lengua y Comunicación">Lengua y Comunicación</option>
-        <option value="Otra">Otra</option>
-      </select>
-      <label>Tema</label>
-      <input id="planTema" required>
-      <label>Fecha</label>
-      <input id="planFecha" type="date" required>
-      <label>Minutos de estudio</label>
-      <input id="planMinutos" type="number" min="5" max="240" value="30" required>
-      <button type="submit">Agregar actividad</button>
-    </form>
-    <h3>Mis actividades</h3>
-    <div id="listaPlan"></div>
+    <p>Aqu&iacute; puedes revisar las actividades que ya realizaste y las que todav&iacute;a tienes pendientes.</p>
+    <div id="resumenSeguimiento"></div>
+    <h3>Actividades realizadas</h3>
+    <div id="actividadesRealizadas"></div>
+    <h3>Actividades pendientes</h3>
+    <div id="actividadesPendientes"></div>
   </div>
 </section>
 
@@ -455,7 +632,7 @@ footer{
   <h2>Mis apuntes</h2>
   <div class="card">
     <form id="apunteForm">
-      <label>Título</label>
+      <label>T&iacute;tulo</label>
       <input id="apunteTitulo" required>
       <label>Contenido</label>
       <textarea id="apunteTexto" required></textarea>
@@ -469,7 +646,11 @@ footer{
 <section id="perfil" class="page">
   <h2>Mi perfil</h2>
   <div class="card">
-    <h2 id="perfilAvatar">👩🏻‍🎓</h2>
+    <h2 id="perfilAvatar">&#128105;&#127995;&#8205;&#127891;</h2>
+    <img id="perfilFoto" class="hidden" alt="Fotograf&iacute;a de perfil" style="width:125px;height:125px;object-fit:cover;border-radius:50%;border:3px solid var(--celeste)">
+    <label>Fotograf&iacute;a de perfil (m&aacute;ximo 2 MB)</label>
+    <input id="fotoPerfil" type="file" accept="image/png,image/jpeg,image/webp">
+    <button type="button" id="eliminarFotoPerfil" onclick="eliminarFotoPerfil()">Eliminar fotograf&iacute;a</button>
     <p>Nombre: <b id="nombreGuardado"></b></p>
     <form id="formularioPerfil">
       <label>Nombre visible</label>
@@ -481,27 +662,23 @@ footer{
     <p>Nivel: <b id="perfilNivel"></b></p>
     <p>Puntos: <b id="perfilPuntos">0</b></p>
     <p>Aciertos: <b id="perfilAciertos">0</b></p>
-    <p>Récord: <b id="perfilRecord">0</b></p>
-    <button onclick="reiniciar()">Reiniciar estadísticas</button>
+    <p>R&eacute;cord: <b id="perfilRecord">0</b></p>
+    <button type="button" onclick="reiniciar()">Reiniciar estad&iacute;sticas</button>
   </div>
 </section>
 
 <section id="despedida" class="page">
   <div class="card" style="text-align:center">
-    <h2>¡Gracias por aprender con EduNexus!</h2>
+    <h2>&iexcl;Gracias por aprender con EduNexus!</h2>
     <p>Aprender es avanzar.</p>
-    <button onclick="volverAcceso()">Volver al inicio</button>
+    <button type="button" onclick="volverAcceso()">Volver al inicio</button>
   </div>
 </section>
 
 </main>
 
-<footer>EduNexus | CECyTEM Villa Victoria — Aprender es avanzar.</footer>
+<footer>EduNexus | CECyTEM Villa Victoria &mdash; Aprender es avanzar.</footer>
 <script>
-/* ==========================
-   NEXUS PLAY Y PRÁCTICAS
-========================== */
-
 const bancoNexus = {
   mate: {
     Secundaria: [
@@ -542,9 +719,9 @@ const bancoNexus = {
       {q:"¿Qué es un sinónimo?",a:["Palabra opuesta","Palabra similar","Una oración","Un verbo"],c:1},
       {q:"¿Qué es una fuente bibliográfica?",a:["Una referencia consultada","Una opinión","Un resumen","Un dibujo"],c:0},
       {q:"¿Qué caracteriza al lenguaje formal?",a:["Uso de expresiones cuidadas","Uso de insultos","Abreviaturas informales","Falta de claridad"],c:0},
-      {q:"¿Qué es una conclusión?",a:["El inicio","El desarrollo","El cierre de un texto","El título"],c:2},
+      {q:"¿Qué es una conclusión?",a:["El inicio","El cierre de un texto","El título","Un ejemplo"],c:2},
       {q:"¿Qué es una paráfrasis?",a:["Copiar sin cambios","Explicar con palabras propias","Inventar datos","Eliminar el texto"],c:1},
-      {q:"¿Qué signo separa elementos de una lista?",a:["Coma","Punto final","Dos puntos siempre","Interrogación"],c:0}
+      {q:"¿Qué signo separa elementos de una lista?",a:["Coma","Interrogación","Paréntesis","Guion"],c:0}
     ]
   }
 };
@@ -603,22 +780,66 @@ const temasPracticas = [
     explicacion: "Los textos narrativos cuentan historias ficticias o reales, los informativos transmiten datos objetivos y los argumentativos defienden una postura o tesis central utilizando argumentos válidos."
   }
 ];
-
+</script>
+<script>
 function cargarPracticas(filtro = "todas"){
   const contenedor = document.getElementById("contenedorPracticas");
   if(!contenedor) return;
 
-  const filtrados = filtro === "todas" 
-    ? temasPracticas 
+  const filtrados = filtro === "todas"
+    ? temasPracticas
     : temasPracticas.filter(t => t.materia === filtro);
 
-  contenedor.innerHTML = filtrados.map(t => `
-    <div class="card" style="background:var(--panel2); border-left:4px solid var(--celeste);">
-      <span style="font-size:12px; color:var(--celeste); font-weight:bold; text-transform:uppercase;">${t.materia === 'Mate' ? 'Matemáticas' : 'Lengua y Comunicación'}</span>
-      <h3 style="margin:5px 0 10px 0;">${escapar(t.titulo)}</h3>
-      <p style="margin:0; color:var(--gris); line-height:1.5;">${escapar(t.explicacion)}</p>
-    </div>
-  `).join("");
+  const completadas = usuario ? (datos().practicasCompletadas || []) : [];
+
+  contenedor.innerHTML = filtrados.map((t) => {
+    const clave = t.materia + "|" + t.titulo;
+    const realizada = completadas.includes(clave);
+
+    return `
+      <div class="card" style="background:var(--panel2); border-left:4px solid var(--celeste);">
+        <span style="font-size:12px; color:var(--celeste); font-weight:bold; text-transform:uppercase;">
+          ${t.materia === 'Mate' ? 'Matemáticas' : 'Lengua y Comunicación'}
+        </span>
+        <h3 style="margin:5px 0 10px 0;">${escapar(t.titulo)}</h3>
+        <p style="margin:0; color:var(--gris); line-height:1.5;">${escapar(t.explicacion)}</p>
+        <p>${realizada ? "Actividad realizada" : "Actividad pendiente"}</p>
+        ${realizada
+          ? `<button type="button" onclick="desmarcarPractica('${escapar(clave)}')">Marcar como pendiente</button>`
+          : `<button type="button" onclick="marcarPracticaRealizada('${escapar(clave)}','${escapar(t.titulo)}')">Marcar como realizada</button>`}
+      </div>
+    `;
+  }).join("");
+}
+
+function marcarPracticaRealizada(clave, titulo){
+  if(!usuario)return;
+  const d=datos();
+  d.practicasCompletadas=d.practicasCompletadas||[];
+  if(d.practicasCompletadas.includes(clave))return;
+  d.practicasCompletadas.push(clave);
+  d.actividades=(d.actividades||0)+1;
+  d.historial=d.historial||[];
+  d.historial.unshift({
+    tipo:"Práctica",
+    detalle:titulo,
+    fecha:new Date().toLocaleString("es-MX"),
+    resultado:{estado:"Completada"}
+  });
+  guardarDatos(d);
+  actualizar();
+  cargarPracticas();
+  renderSeguimiento();
+}
+
+function desmarcarPractica(clave){
+  if(!usuario)return;
+  const d=datos();
+  d.practicasCompletadas=(d.practicasCompletadas||[]).filter(x=>x!==clave);
+  guardarDatos(d);
+  actualizar();
+  cargarPracticas();
+  renderSeguimiento();
 }
 
 function filtrarPractica(materia){
@@ -627,7 +848,7 @@ function filtrarPractica(materia){
 
 let playerName="Jugador";
 let avatar="👩🏻‍🎓";
-let xp=Number(localStorage.getItem("nexusXP")||0);
+let xp=0;
 let level="";
 let subject="";
 let lives=3;
@@ -641,32 +862,70 @@ let timer=null;
 let seconds=20;
 let questions=[];
 let gameType="";
+let correctCount=0;
+let wrongCount=0;
+let gameRecorded=false;
 
 function setAvatar(value){
   avatar=value;
   document.getElementById("homeAvatar").textContent=avatar;
-  localStorage.setItem("nexusAvatar",avatar);
+  if(typeof usuario!=="undefined" && usuario){
+    localStorage.setItem("nexusAvatar_"+usuario.usuario,avatar);
+  }
 }
 
 function updateXP(amount=0){
   xp+=amount;
-  localStorage.setItem("nexusXP",xp);
+  if(typeof usuario!=="undefined" && usuario){
+    const d=datos();
+    d.nexusXP=xp;
+    guardarDatos(d);
+  }
   document.getElementById("totalXP").textContent=xp+" XP";
   document.getElementById("gameXP").textContent=xp;
-  document.getElementById("t1").textContent=xp>=10?"🏆 Primeros puntos":"🔒 Primeros puntos";
-  document.getElementById("t2").textContent=xp>=100?"🏆 100 XP":"🔒 100 XP";
-  document.getElementById("t3").textContent=xp>=300?"🏆 300 XP":"🔒 300 XP";
+  document.getElementById("t1").textContent=xp>=10?"Primeros puntos desbloqueados":"Primeros puntos bloqueados";
+  document.getElementById("t2").textContent=xp>=100?"100 XP desbloqueados":"100 XP bloqueados";
+  document.getElementById("t3").textContent=xp>=300?"300 XP desbloqueados":"300 XP bloqueados";
+}
+
+function ocultarPasosJuego(){
+  document.getElementById("pasoJugador").classList.add("np-hidden");
+  document.getElementById("subjects").classList.add("np-hidden");
+  document.getElementById("modes").classList.add("np-hidden");
+  document.getElementById("logrosPanel").classList.add("np-hidden");
+}
+
+function volverPasoJugador(){
+  ocultarPasosJuego();
+  document.getElementById("pasoJugador").classList.remove("np-hidden");
+  window.scrollTo(0,0);
+}
+
+function volverPasoMateria(){
+  ocultarPasosJuego();
+  document.getElementById("subjects").classList.remove("np-hidden");
+  window.scrollTo(0,0);
+}
+
+function abrirLogrosJuego(){
+  ocultarPasosJuego();
+  document.getElementById("logrosPanel").classList.remove("np-hidden");
+  window.scrollTo(0,0);
 }
 
 function selectLevel(value){
   level=value;
   document.getElementById("gameLevel").textContent=level;
+  ocultarPasosJuego();
   document.getElementById("subjects").classList.remove("np-hidden");
+  window.scrollTo(0,0);
 }
 
 function selectSubject(value){
   subject=value;
+  ocultarPasosJuego();
   document.getElementById("modes").classList.remove("np-hidden");
+  window.scrollTo(0,0);
 }
 
 function showGame(type){
@@ -676,6 +935,20 @@ function showGame(type){
   document.getElementById("memoryArea").classList.add("np-hidden");
   document.getElementById("result").classList.add("np-hidden");
   gameType=type;
+  window.scrollTo(0,0);
+}
+
+function actualizarConteo(){
+  const correctas=document.getElementById("correctCount");
+  const incorrectas=document.getElementById("wrongCount");
+  if(correctas)correctas.textContent=correctCount;
+  if(incorrectas)incorrectas.textContent=wrongCount;
+}
+
+function registrarResultadoJuego(){
+  if(gameRecorded)return;
+  gameRecorded=true;
+  registrarActividad("Juego",gameType==="quiz"?"Trivia":"Memorama",{correctas:correctCount,incorrectas:wrongCount});
 }
 
 function startQuiz(){
@@ -685,6 +958,10 @@ function startQuiz(){
   questions=[...bancoNexus[subject][level]].sort(()=>Math.random()-.5).slice(0,5);
   index=0;
   lives=3;
+  correctCount=0;
+  wrongCount=0;
+  gameRecorded=false;
+  actualizarConteo();
   document.getElementById("lives").textContent=lives;
   showGame("quiz");
   document.getElementById("quizArea").classList.remove("np-hidden");
@@ -702,6 +979,7 @@ function loadQuestion(){
   answers.innerHTML="";
   q.a.forEach((answer,i)=>{
     const b=document.createElement("button");
+    b.type="button";
     b.className="np-option";
     b.textContent=answer;
     b.onclick=()=>checkAnswer(i);
@@ -718,6 +996,8 @@ function updateTimer(){
   document.getElementById("timerBar").style.width=(seconds/20*100)+"%";
   if(seconds<=0){
     clearInterval(timer);
+    wrongCount++;
+    actualizarConteo();
     loseLife();
     document.getElementById("feedback").textContent="Se terminó el tiempo.";
     document.getElementById("nextButton").classList.remove("np-hidden");
@@ -729,12 +1009,15 @@ function checkAnswer(choice){
   const q=questions[index];
   document.querySelectorAll("#answers button").forEach(b=>b.disabled=true);
   if(choice===q.c){
+    correctCount++;
     document.getElementById("feedback").textContent="¡Correcto! +10 XP";
     updateXP(10);
   }else{
+    wrongCount++;
     loseLife();
     document.getElementById("feedback").textContent="Respuesta incorrecta.";
   }
+  actualizarConteo();
   document.getElementById("nextButton").classList.remove("np-hidden");
 }
 
@@ -754,6 +1037,7 @@ function startMemory(){
   showGame("memory");
   document.getElementById("memoryArea").classList.remove("np-hidden");
   moves=0;matched=0;first=null;second=null;locked=false;
+  correctCount=0;wrongCount=0;gameRecorded=false;actualizarConteo();
   document.getElementById("moves").textContent=moves;
   document.getElementById("pairs").textContent=matched;
   const cards=[...parejasNexus[subject]].flatMap((pair,i)=>[
@@ -763,6 +1047,7 @@ function startMemory(){
   board.innerHTML="";
   cards.forEach(card=>{
     const b=document.createElement("button");
+    b.type="button";
     b.className="memory-card";
     b.textContent="?";
     b.dataset.id=card.id;
@@ -783,14 +1068,19 @@ function flipMemory(card){
     first.classList.add("matched");
     second.classList.add("matched");
     matched++;
+    correctCount++;
+    actualizarConteo();
     updateXP(10);
     document.getElementById("pairs").textContent=matched;
     first=null;second=null;
     if(matched===parejasNexus[subject].length){
       document.getElementById("resultMessage").textContent="¡Completaste el memorama!";
       document.getElementById("result").classList.remove("np-hidden");
+      registrarResultadoJuego();
     }
   }else{
+    wrongCount++;
+    actualizarConteo();
     locked=true;
     setTimeout(()=>{
       first.textContent="?";
@@ -804,7 +1094,8 @@ function endGame(){
   clearInterval(timer);
   document.getElementById("quizArea").classList.add("np-hidden");
   document.getElementById("result").classList.remove("np-hidden");
-  document.getElementById("resultMessage").textContent="Terminaste la trivia. ¡Sigue practicando!";
+  document.getElementById("resultMessage").textContent=`Terminaste la trivia. Correctas: ${correctCount}. Incorrectas: ${wrongCount}. ¡Sigue practicando!`;
+  registrarResultadoJuego();
 }
 
 function restartGame(){
@@ -817,50 +1108,37 @@ function goHome(){
   clearInterval(timer);
   document.getElementById("game").classList.add("np-hidden");
   document.getElementById("home").classList.remove("np-hidden");
+  volverPasoJugador();
 }
 
 function resetProgress(){
   if(!confirm("¿Quieres reiniciar tu experiencia y progreso de NEXUS PLAY?"))return;
   xp=0;
-  localStorage.setItem("nexusXP","0");
   updateXP();
 }
 
 document.getElementById("playerName").addEventListener("input",function(){
   document.getElementById("homeName").textContent=this.value||"Jugador";
 });
-
-setAvatar(localStorage.getItem("nexusAvatar")||"👩🏻‍🎓");
-updateXP();
 </script>
 <script>
-/* ==========================
-   EDU NEXUS: CUENTAS Y FUNCIONES
-========================== */
-
 let usuario=null;
-let ronda=[],posicion=0,buenas=0;
 let examen=[],posicionExamen=0,buenasExamen=0;
 let materiaExamen="";
-
-const KEY="edunexus_cuentas";
 let avatarRegistro="👩🏻‍🎓";
+let fotoRegistroData="";
 
 function datos(){
   if(!usuario)return {};
   try{
     return JSON.parse(localStorage.getItem("datos_"+usuario.usuario))||{
-      puntos:0,
-      aciertos:0,
-      actividades:0,
-      plan:[],
-      apuntes:[],
-      nombreVisible:""
+      puntos:0,aciertos:0,actividades:0,apuntes:[],historial:[],
+      practicasCompletadas:[],nexusXP:0,nombreVisible:"",fotoPerfil:""
     };
   }catch(e){
     return {
-      puntos:0,aciertos:0,actividades:0,
-      plan:[],apuntes:[],nombreVisible:""
+      puntos:0,aciertos:0,actividades:0,apuntes:[],historial:[],
+      practicasCompletadas:[],nexusXP:0,nombreVisible:"",fotoPerfil:""
     };
   }
 }
@@ -872,19 +1150,30 @@ function guardarDatos(d){
   }
 }
 
+function registrarActividad(tipo,detalle,resultado={}){
+  if(!usuario)return;
+  const d=datos();
+  d.actividades=(d.actividades||0)+1;
+  d.historial=d.historial||[];
+  d.historial.unshift({tipo,detalle,fecha:new Date().toLocaleString("es-MX"),resultado});
+  guardarDatos(d);
+  actualizar();
+}
+
 function actualizarRegistroGlobal(d){
   try{
-    let todosLosRecords = JSON.parse(localStorage.getItem("edunexus_todos_records") || "{}");
-    const nombreActual = d.nombreVisible || usuario.nombre || usuario.usuario;
-    todosLosRecords[usuario.usuario] = {
-      usuario: usuario.usuario,
-      nombre: nombreActual,
-      puntos: d.puntos || 0,
-      aciertos: d.aciertos || 0
+    let todosLosRecords=JSON.parse(localStorage.getItem("edunexus_todos_records")||"{}");
+    const nombreActual=d.nombreVisible||usuario.nombre||usuario.usuario;
+    todosLosRecords[usuario.usuario]={
+      usuario:usuario.usuario,
+      nombre:nombreActual,
+      puntos:d.puntos||0,
+      aciertos:d.aciertos||0,
+      nexusXP:d.nexusXP||0
     };
-    localStorage.setItem("edunexus_todos_records", JSON.stringify(todosLosRecords));
+    localStorage.setItem("edunexus_todos_records",JSON.stringify(todosLosRecords));
   }catch(e){
-    console.error("Error al actualizar récord global", e);
+    console.error("Error al actualizar récord global",e);
   }
 }
 
@@ -892,12 +1181,9 @@ function mostrar(id){
   if(id!=="acceso"&&id!=="despedida"&&!usuario){
     id="acceso";
   }
-
   document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-
   const pagina=document.getElementById(id);
   if(pagina)pagina.classList.add("active");
-
   if(usuario)actualizar();
   window.scrollTo(0,0);
 }
@@ -909,10 +1195,53 @@ function elegirAvatar(valor,boton){
   if(boton)boton.classList.add("selected");
 }
 
+function limpiarFotoRegistro(){
+  fotoRegistroData="";
+  const input=document.getElementById("regFotoArchivo");
+  const wrap=document.getElementById("vistaPreviaRegistroWrap");
+  const img=document.getElementById("vistaPreviaRegistro");
+  if(input)input.value="";
+  if(img)img.src="";
+  if(wrap)wrap.classList.add("hidden");
+}
+
+document.getElementById("regFotoArchivo").addEventListener("change",function(){
+  const archivo=this.files[0];
+  if(!archivo)return;
+  if(archivo.size>2*1024*1024){alert("La fotografía no debe superar 2 MB.");this.value="";return;}
+  if(!["image/png","image/jpeg","image/webp"].includes(archivo.type)){alert("Selecciona una imagen PNG, JPG o WEBP.");this.value="";return;}
+  const lector=new FileReader();
+  lector.onload=()=>{
+    fotoRegistroData=lector.result;
+    document.getElementById("vistaPreviaRegistro").src=fotoRegistroData;
+    document.getElementById("vistaPreviaRegistroWrap").classList.remove("hidden");
+  };
+  lector.readAsDataURL(archivo);
+});
+
+function leerArchivoImagen(inputElement){
+  return new Promise((resolve,reject)=>{
+    const archivo=inputElement && inputElement.files ? inputElement.files[0] : null;
+    if(!archivo){resolve("");return;}
+    if(archivo.size>2*1024*1024){reject(new Error("La fotografía no debe superar 2 MB."));return;}
+    if(!["image/png","image/jpeg","image/webp"].includes(archivo.type)){reject(new Error("Selecciona una imagen PNG, JPG o WEBP."));return;}
+    const lector=new FileReader();
+    lector.onload=()=>resolve(lector.result);
+    lector.onerror=()=>reject(new Error("No se pudo leer la imagen."));
+    lector.readAsDataURL(archivo);
+  });
+}
+
 function mostrarLogin(){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById("acceso").classList.add("active");
   document.getElementById("registroVista").classList.add("hidden");
   document.getElementById("loginVista").classList.remove("hidden");
+  document.getElementById("menu").classList.add("hidden");
   document.getElementById("mensajeRegistro").textContent="";
+  document.getElementById("mensajeClave").textContent="";
+  document.getElementById("mensajeClave").classList.add("hidden");
+  document.getElementById("mensajeLogin").textContent="";
 }
 
 function mostrarRegistro(){
@@ -921,88 +1250,102 @@ function mostrarRegistro(){
   document.getElementById("mensajeLogin").textContent="";
 }
 
+function prepararHistorialNavegacion(){
+  history.replaceState({edunexus:true},"",location.href);
+  history.pushState({edunexus:true},"",location.href);
+}
+
+window.addEventListener("popstate",function(){
+  mostrarLogin();
+  history.pushState({edunexus:true},"",location.href);
+});
+
 async function enviarAPI(ruta,datosEnviar){
   const respuesta=await fetch(ruta,{
     method:"POST",
     headers:{"Content-Type":"application/json"},
     body:JSON.stringify(datosEnviar)
   });
-
   let resultado={};
   try{
     resultado=await respuesta.json();
   }catch(e){
     throw new Error("El servidor no devolvió una respuesta válida.");
   }
-
   if(!respuesta.ok){
     throw new Error(resultado.mensaje||resultado.error||"Ocurrió un error.");
   }
-
   return resultado;
 }
 
-function entrarConPerfil(perfil){
+function entrarConPerfil(perfil,fotoExtra=""){
   if(!perfil||!perfil.usuario){
     throw new Error("No se recibieron los datos del usuario.");
   }
-
   usuario=perfil;
 
+  let d=datos();
   if(!localStorage.getItem("datos_"+usuario.usuario)){
-    localStorage.setItem("datos_"+usuario.usuario,JSON.stringify({
-      puntos:0,
-      aciertos:0,
-      actividades:0,
-      plan:[],
-      apuntes:[],
-      nombreVisible:""
-    }));
+    d={
+      puntos:0,aciertos:0,actividades:0,apuntes:[],historial:[],
+      practicasCompletadas:[],nexusXP:0,nombreVisible:"",fotoPerfil:fotoExtra||""
+    };
+  }else if(fotoExtra){
+    d.fotoPerfil=fotoExtra;
   }
 
-  guardarDatos(datos());
+  guardarDatos(d);
+  xp=Number(d.nexusXP||0);
+  setAvatar(localStorage.getItem("nexusAvatar_"+usuario.usuario)||usuario.avatar||"👩🏻‍🎓");
+  updateXP();
 
   document.getElementById("menu").classList.remove("hidden");
   document.getElementById("registroForm").reset();
   document.getElementById("loginForm").reset();
-
+  limpiarFotoRegistro();
   mostrar("inicio");
 }
 
 document.getElementById("registroForm").addEventListener("submit",async function(e){
   e.preventDefault();
-
   const nombre=document.getElementById("regNombre").value.trim();
   const nombreUsuario=document.getElementById("regUsuario").value.trim();
   const correo=document.getElementById("regCorreo").value.trim();
   const clave=document.getElementById("regClave").value;
+  const claveConfirmar=document.getElementById("regClaveConfirmar").value;
   const nivel=document.getElementById("regNivel").value;
-
   const mensaje=document.getElementById("mensajeRegistro");
+  const mensajeClave=document.getElementById("mensajeClave");
+
+  if(clave!==claveConfirmar){
+    mensajeClave.textContent="Las contraseñas no coinciden.";
+    mensajeClave.classList.remove("hidden");
+    mensaje.textContent="Corrige la contraseña antes de continuar.";
+    mensaje.className="mensaje bad";
+    return;
+  }
+
+  mensajeClave.textContent="";
+  mensajeClave.classList.add("hidden");
   mensaje.textContent="Registrando cuenta...";
 
   try{
     await enviarAPI("/api/registro",{
-      nombre:nombre,
-      usuario:nombreUsuario,
-      correo:correo,
-      clave:clave,
-      nivel:nivel,
-      avatar:avatarRegistro
+      nombre:nombre,usuario:nombreUsuario,correo:correo,
+      clave:clave,nivel:nivel,avatar:avatarRegistro
     });
 
-    const resultadoLogin=await enviarAPI("/api/login",{
-      usuario:nombreUsuario,
-      clave:clave
-    });
+    if(fotoRegistroData){
+      const datosPrevios=JSON.parse(localStorage.getItem("datos_"+nombreUsuario)||"{}");
+      datosPrevios.fotoPerfil=fotoRegistroData;
+      localStorage.setItem("datos_"+nombreUsuario,JSON.stringify(datosPrevios));
+    }
 
-    const perfil=resultadoLogin.perfil||resultadoLogin.usuario;
-
-    if(!perfil)throw new Error("La cuenta se creó, pero no se recibieron los datos para iniciar sesión.");
-
-    perfil.avatar=perfil.avatar||avatarRegistro;
-    entrarConPerfil(perfil);
-
+    mensaje.textContent="¡Cuenta creada correctamente! Ahora inicia sesión.";
+    mensaje.className="mensaje good";
+    document.getElementById("loginUsuario").value=nombreUsuario;
+    mostrarLogin();
+    document.getElementById("mensajeLogin").textContent="Tu cuenta ya está creada. Inicia sesión para continuar.";
   }catch(error){
     mensaje.textContent=error.message;
     mensaje.className="mensaje bad";
@@ -1011,25 +1354,17 @@ document.getElementById("registroForm").addEventListener("submit",async function
 
 document.getElementById("loginForm").addEventListener("submit",async function(e){
   e.preventDefault();
-
   const nombreUsuario=document.getElementById("loginUsuario").value.trim();
   const clave=document.getElementById("loginClave").value;
   const mensaje=document.getElementById("mensajeLogin");
-
   mensaje.textContent="Iniciando sesión...";
 
   try{
-    const resultado=await enviarAPI("/api/login",{
-      usuario:nombreUsuario,
-      clave:clave
-    });
-
+    const fotoLogin=await leerArchivoImagen(document.getElementById("loginFotoArchivo"));
+    const resultado=await enviarAPI("/api/login",{usuario:nombreUsuario,clave:clave});
     const perfil=resultado.perfil||resultado.usuario;
-
     if(!perfil)throw new Error("No se recibieron los datos del perfil.");
-
-    entrarConPerfil(perfil);
-
+    entrarConPerfil(perfil,fotoLogin);
   }catch(error){
     mensaje.textContent=error.message;
     mensaje.className="mensaje bad";
@@ -1039,13 +1374,11 @@ document.getElementById("loginForm").addEventListener("submit",async function(e)
 async function salir(){
   mostrar("despedida");
   document.getElementById("menu").classList.add("hidden");
-
   try{
     await enviarAPI("/api/logout",{});
   }catch(error){
     console.log("No se pudo cerrar la sesión del servidor:",error);
   }
-
   usuario=null;
 }
 
@@ -1056,41 +1389,54 @@ function volverAcceso(){
 
 function actualizar(){
   if(!usuario)return;
-
   const d=datos();
+  d.apuntes=d.apuntes||[];
+  d.historial=d.historial||[];
+  d.practicasCompletadas=d.practicasCompletadas||[];
   const nombre=d.nombreVisible||usuario.nombre||usuario.usuario;
 
   document.getElementById("bienvenida").textContent="¡Bienvenido, "+nombre+"!";
   document.getElementById("saludo").textContent="Continúa aprendiendo con EduNexus.";
-
   document.getElementById("puntos").textContent=d.puntos||0;
   document.getElementById("aciertos").textContent=d.aciertos||0;
   document.getElementById("actividades").textContent=d.actividades||0;
 
   document.getElementById("nombreGuardado").textContent=nombre;
   document.getElementById("nombreJugador").value=nombre;
-
   document.getElementById("perfilUsuario").textContent=usuario.usuario;
   document.getElementById("perfilNivel").textContent=usuario.nivel||"No especificado";
   document.getElementById("perfilPuntos").textContent=d.puntos||0;
   document.getElementById("perfilAciertos").textContent=d.aciertos||0;
-  document.getElementById("perfilRecord").textContent=usuario.record||d.puntos||0;
+  document.getElementById("perfilRecord").textContent=Math.max(usuario.record||0,d.puntos||0);
 
   document.getElementById("perfilAvatar").textContent=usuario.avatar||"👩🏻‍🎓";
+  const foto=document.getElementById("perfilFoto");
+  if(d.fotoPerfil){
+    foto.src=d.fotoPerfil;
+    foto.classList.remove("hidden");
+    document.getElementById("perfilAvatar").classList.add("hidden");
+  }else{
+    foto.classList.add("hidden");
+    document.getElementById("perfilAvatar").classList.remove("hidden");
+  }
 
-  renderPlan();
+  xp=Number(d.nexusXP||0);
+  document.getElementById("totalXP").textContent=xp+" XP";
+  document.getElementById("gameXP").textContent=xp;
+  document.getElementById("t1").textContent=xp>=10?"Primeros puntos desbloqueados":"Primeros puntos bloqueados";
+  document.getElementById("t2").textContent=xp>=100?"100 XP desbloqueados":"100 XP bloqueados";
+  document.getElementById("t3").textContent=xp>=300?"300 XP desbloqueados":"300 XP bloqueados";
+
   renderApuntes();
+  renderSeguimiento();
 }
 
 document.getElementById("formularioPerfil").addEventListener("submit",function(e){
   e.preventDefault();
-
   const d=datos();
   d.nombreVisible=document.getElementById("nombreJugador").value.trim();
-
   guardarDatos(d);
   actualizar();
-
   document.getElementById("mensajePerfil").textContent="Nombre actualizado correctamente.";
 });
 
@@ -1137,13 +1483,7 @@ function mezclar(lista){
 
 function escapar(texto){
   return String(texto??"").replace(/[&<>"']/g,function(c){
-    return {
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#39;"
-    }[c];
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
   });
 }
 
@@ -1152,58 +1492,44 @@ function iniciarExamen(tipo){
   examen=mezclar(banco[tipo]).slice(0,10);
   posicionExamen=0;
   buenasExamen=0;
-
   document.getElementById("zonaCertificado").innerHTML="";
   preguntaExamen();
 }
 
 function preguntaExamen(){
   const zona=document.getElementById("zonaExamen");
-
-  if(posicionExamen>=examen.length){
-    finalizarExamen();
-    return;
-  }
-
+  if(posicionExamen>=examen.length){finalizarExamen();return;}
   const q=examen[posicionExamen];
-
   zona.innerHTML=`
     <div class="card">
       <h3>${escapar(materiaExamen)}</h3>
       <p>Pregunta ${posicionExamen+1} de ${examen.length}</p>
       <h3>${escapar(q.p)}</h3>
       ${q.o.map((op,i)=>`
-        <button class="option" onclick="responderExamen(${i})">
-          ${escapar(op)}
-        </button>
+        <button type="button" class="option" onclick="responderExamen(${i})">${escapar(op)}</button>
       `).join("")}
     </div>
   `;
 }
 
 function responderExamen(opcion){
-  if(opcion===examen[posicionExamen].r){
-    buenasExamen++;
-  }
-
+  if(opcion===examen[posicionExamen].r)buenasExamen++;
   posicionExamen++;
   preguntaExamen();
 }
 
 function finalizarExamen(){
   const porcentaje=Math.round((buenasExamen/examen.length)*100);
-
   document.getElementById("zonaExamen").innerHTML=`
     <div class="card">
       <h3>Resultado del examen</h3>
       <p>Aciertos: ${buenasExamen} de ${examen.length}</p>
       <h2>${porcentaje}%</h2>
       <h3>${porcentaje>=70?"¡Aprobaste!":"No alcanzaste el 70%."}</h3>
-      ${porcentaje>=70?'<button onclick="generarCertificado()">Ver constancia</button>':''}
-      <button onclick="volverExamenes()">Volver a los exámenes</button>
+      ${porcentaje>=70?'<button type="button" onclick="generarCertificado()">Ver constancia</button>':''}
+      <button type="button" onclick="volverExamenes()">Volver a los exámenes</button>
     </div>
   `;
-
   guardarResultadoExamen(porcentaje);
 }
 
@@ -1214,14 +1540,15 @@ function volverExamenes(){
 
 function guardarResultadoExamen(porcentaje){
   const d=datos();
-
   d.actividades=(d.actividades||0)+1;
   d.aciertos=(d.aciertos||0)+buenasExamen;
-
-  if(porcentaje>=70){
-    d.puntos=(d.puntos||0)+20;
-  }
-
+  d.historial=d.historial||[];
+  d.historial.unshift({
+    tipo:"Examen",detalle:materiaExamen,
+    fecha:new Date().toLocaleString("es-MX"),
+    resultado:{porcentaje,aciertos:buenasExamen,total:examen.length}
+  });
+  if(porcentaje>=70)d.puntos=(d.puntos||0)+20;
   guardarDatos(d);
   actualizar();
 }
@@ -1229,7 +1556,6 @@ function guardarResultadoExamen(porcentaje){
 function generarCertificado(){
   const d=datos();
   const nombre=d.nombreVisible||usuario.nombre||usuario.usuario;
-
   document.getElementById("zonaCertificado").innerHTML=`
     <div id="certificado">
       <h2>EDUNEXUS</h2>
@@ -1241,122 +1567,113 @@ function generarCertificado(){
       <p>CECyTEM Villa Victoria</p>
       <p>¡Felicidades por tu esfuerzo!</p>
     </div>
-    <button onclick="imprimirCertificado()">Imprimir constancia</button>
+    <button type="button" onclick="imprimirCertificado()">Imprimir constancia</button>
   `;
 }
 
 function imprimirCertificado(){
   const contenido=document.getElementById("certificado").innerHTML;
   const ventana=window.open("","_blank");
-
-  if(!ventana){
-    alert("Permite las ventanas emergentes para imprimir la constancia.");
-    return;
-  }
-
+  if(!ventana){alert("Permite las ventanas emergentes para imprimir la constancia.");return;}
   ventana.document.write(`
-    <html>
-    <head><title>Constancia EduNexus</title>
-    <style>
-      body{font-family:Arial;padding:30px;text-align:center}
-      #certificado{border:8px double #2878ff;padding:35px}
-    </style>
-    </head>
-    <body><div id="certificado">${contenido}</div></body>
-    </html>
+    <html><head><title>Constancia EduNexus</title>
+    <style>body{font-family:Arial;padding:30px;text-align:center}#certificado{border:8px double #2878ff;padding:35px}</style>
+    </head><body><div id="certificado">${contenido}</div></body></html>
   `);
-
   ventana.document.close();
   ventana.print();
 }
-
+</script>
+<script>
 async function cargarRecords(){
   const lista=document.getElementById("listaRecords");
-  lista.textContent="Cargando récords...";
+  lista.textContent="Cargando récords de todos los usuarios...";
 
-  let recordsCombinados = [];
+  let recordsCombinados=[];
 
   try{
     const respuesta=await fetch("/api/records");
     if(respuesta.ok){
       const resultado=await respuesta.json();
-      if(resultado.records && resultado.records.length > 0){
-        recordsCombinados = resultado.records;
+      if(resultado.records && resultado.records.length>0){
+        recordsCombinados=[...resultado.records];
       }
     }
   }catch(error){
-    console.log("No se pudo conectar al servidor de récords, cargando locales.");
+    console.log("No se pudo conectar al servidor de récords, usando locales.");
   }
 
-  if(recordsCombinados.length === 0){
-    try{
-      const todosLosRecords = JSON.parse(localStorage.getItem("edunexus_todos_records") || "{}");
-      recordsCombinados = Object.values(todosLosRecords);
-    }catch(e){
-      console.log("Error leyendo récords locales.");
-    }
+  try{
+    const todosLosRecords=JSON.parse(localStorage.getItem("edunexus_todos_records")||"{}");
+    Object.values(todosLosRecords).forEach(recLocal=>{
+      const idx=recordsCombinados.findIndex(r=>r.usuario===recLocal.usuario);
+      if(idx>=0){
+        recordsCombinados[idx].puntos=Math.max(recordsCombinados[idx].puntos||0,recLocal.puntos||0);
+        recordsCombinados[idx].aciertos=Math.max(recordsCombinados[idx].aciertos||0,recLocal.aciertos||0);
+        recordsCombinados[idx].nexusXP=Math.max(recordsCombinados[idx].nexusXP||0,recLocal.nexusXP||0);
+        recordsCombinados[idx].nombre=recLocal.nombre||recordsCombinados[idx].nombre;
+      }else{
+        recordsCombinados.push(recLocal);
+      }
+    });
+  }catch(e){
+    console.log("Error leyendo récords locales.");
   }
 
   if(usuario){
-    const d = datos();
-    const nombreActual = d.nombreVisible || usuario.nombre || usuario.usuario;
-    const indexExistente = recordsCombinados.findIndex(r => r.usuario === usuario.usuario);
-    if(indexExistente >= 0){
-      recordsCombinados[indexExistente].puntos = Math.max(recordsCombinados[indexExistente].puntos || 0, d.puntos || 0);
-      recordsCombinados[indexExistente].aciertos = Math.max(recordsCombinados[indexExistente].aciertos || 0, d.aciertos || 0);
-      recordsCombinados[indexExistente].nombre = nombreActual;
-    } else {
-      recordsCombinados.push({
-        usuario: usuario.usuario,
-        nombre: nombreActual,
-        puntos: d.puntos || 0,
-        aciertos: d.aciertos || 0
-      });
+    const d=datos();
+    const nombreActual=d.nombreVisible||usuario.nombre||usuario.usuario;
+    const idx=recordsCombinados.findIndex(r=>r.usuario===usuario.usuario);
+    const actual={
+      usuario:usuario.usuario,
+      nombre:nombreActual,
+      puntos:d.puntos||0,
+      aciertos:d.aciertos||0,
+      nexusXP:d.nexusXP||0
+    };
+    if(idx>=0){
+      recordsCombinados[idx]={
+        ...recordsCombinados[idx],
+        ...actual,
+        puntos:Math.max(recordsCombinados[idx].puntos||0,actual.puntos),
+        aciertos:Math.max(recordsCombinados[idx].aciertos||0,actual.aciertos),
+        nexusXP:Math.max(recordsCombinados[idx].nexusXP||0,actual.nexusXP)
+      };
+    }else{
+      recordsCombinados.push(actual);
     }
   }
 
   if(!recordsCombinados.length){
-    lista.textContent="Todavía no hay récords registrados. ¡Juega o haz exámenes para aparecer aquí!";
+    lista.textContent="Todavía no hay récords registrados de usuarios.";
     return;
   }
 
-  recordsCombinados.sort((a, b) => (b.puntos || 0) - (a.puntos || 0));
+  recordsCombinados.sort((a,b)=>((b.puntos||0)+(b.nexusXP||0))-((a.puntos||0)+(a.nexusXP||0)));
 
   lista.innerHTML=recordsCombinados.map((r,i)=>`
-    <div class="card" style="display:flex; justify-content:space-between; align-items:center;">
+    <div class="card" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;">
       <div>
-        <b>${i+1}. ${escapar(r.nombre||r.usuario||"Jugador")}</b>
-        <p style="margin:5px 0 0 0; color:var(--gris); font-size:14px;">Usuario: ${escapar(r.usuario||"")}</p>
+        <b>#${i+1} ${escapar(r.nombre||r.usuario||"Jugador")}</b>
+        <p style="margin:4px 0 0 0;color:var(--gris);font-size:14px;">Usuario: ${escapar(r.usuario||"")}</p>
       </div>
       <div style="text-align:right;">
-        <span style="color:var(--celeste); font-size:18px; font-weight:bold;">${escapar(r.puntos??0)} Puntos</span>
-        <p style="margin:2px 0 0 0; font-size:13px; color:var(--gris);">Aciertos: ${escapar(r.aciertos??0)}</p>
+        <span style="color:var(--celeste);font-size:18px;font-weight:bold;">${escapar(r.puntos??0)} Puntos</span>
+        <p style="margin:2px 0 0 0;font-size:13px;color:var(--gris);">Juegos XP: ${escapar(r.nexusXP??0)} &bull; Aciertos: ${escapar(r.aciertos??0)}</p>
       </div>
     </div>
   `).join("");
 }
 
-function sumar(puntos,aciertos){
-  const d=datos();
-  d.puntos=(d.puntos||0)+puntos;
-  d.aciertos=(d.aciertos||0)+aciertos;
-  d.actividades=(d.actividades||0)+1;
-  guardarDatos(d);
-  actualizar();
-}
-
 function buscarVideo(tema){
   if(!tema)return;
-
   const resultado=document.getElementById("resultadoVideo");
   const consulta=encodeURIComponent(tema+" explicación educativa");
-
   resultado.innerHTML=`
     <div class="card">
       <h3>Videos sobre: ${escapar(tema)}</h3>
-      <a href="https://www.youtube.com/results?search_query=${consulta}"
-         target="_blank" rel="noopener">
-         Ver resultados en YouTube
+      <a href="https://www.youtube.com/results?search_query=${consulta}" target="_blank" rel="noopener">
+        Ver resultados en YouTube
       </a>
     </div>
   `;
@@ -1367,55 +1684,62 @@ document.getElementById("videoForm").addEventListener("submit",function(e){
   buscarVideo(document.getElementById("temaVideo").value.trim());
 });
 
-document.getElementById("planForm").addEventListener("submit",function(e){
-  e.preventDefault();
+function renderSeguimiento(){
+  const resumen=document.getElementById("resumenSeguimiento");
+  const realizadas=document.getElementById("actividadesRealizadas");
+  const pendientes=document.getElementById("actividadesPendientes");
+  if(!usuario)return;
 
   const d=datos();
-  d.plan.push({
-    materia:document.getElementById("planMateria").value,
-    tema:document.getElementById("planTema").value,
-    fecha:document.getElementById("planFecha").value,
-    minutos:document.getElementById("planMinutos").value
-  });
+  const practicas=d.practicasCompletadas||[];
+  const historial=d.historial||[];
+  const totalPracticas=temasPracticas.length;
+  const pendientesPracticas=Math.max(0,totalPracticas-practicas.length);
 
-  guardarDatos(d);
-  this.reset();
-  actualizar();
-});
-
-function renderPlan(){
-  const contenedor=document.getElementById("listaPlan");
-  if(!usuario||!contenedor)return;
-
-  const lista=datos().plan||[];
-
-  contenedor.innerHTML=lista.length?
-    lista.map((x,i)=>`
-      <div class="card">
-        <b>${escapar(x.materia)}</b>
-        <p>${escapar(x.tema)} — ${escapar(x.fecha)} — ${escapar(x.minutos)} minutos</p>
-        <button onclick="borrarPlan(${i})">Eliminar</button>
+  if(resumen){
+    resumen.innerHTML=`
+      <div class="stats">
+        <div class="stat">Realizadas<strong>${historial.length}</strong></div>
+        <div class="stat">Prácticas listas<strong>${practicas.length}</strong></div>
+        <div class="stat">Prácticas pendientes<strong>${pendientesPracticas}</strong></div>
       </div>
-    `).join("")
-    :"<p>No has agregado actividades.</p>";
-}
+    `;
+  }
 
-function borrarPlan(i){
-  const d=datos();
-  d.plan.splice(i,1);
-  guardarDatos(d);
-  actualizar();
+  if(realizadas){
+    realizadas.innerHTML=historial.length
+      ? historial.slice(0,20).map(x=>`
+          <div class="card" style="border-left:4px solid #00f2fe;">
+            <b>${escapar(x.tipo)}: ${escapar(x.detalle)}</b>
+            <p style="color:var(--gris);margin-bottom:0;">${escapar(x.fecha)}</p>
+            ${x.resultado?.porcentaje!==undefined
+              ? `<p>Resultado: ${escapar(x.resultado.porcentaje)}% — Aciertos: ${escapar(x.resultado.aciertos)} de ${escapar(x.resultado.total)}</p>`
+              : ""}
+          </div>
+        `).join("")
+      : "<p>Aún no has realizado actividades.</p>";
+  }
+
+  if(pendientes){
+    const listaPendientes=temasPracticas.filter(t=>!practicas.includes(t.materia+"|"+t.titulo));
+    pendientes.innerHTML=listaPendientes.length
+      ? listaPendientes.map(t=>`
+          <div class="card" style="border-left:4px solid #9d4edd;">
+            <b>${t.materia==="Mate"?"Matemáticas":"Lengua y Comunicación"}: ${escapar(t.titulo)}</b>
+            <p style="color:var(--gris);margin-bottom:0;">Pendiente en Prácticas</p>
+          </div>
+        `).join("")
+      : "<p>¡Completaste todas las prácticas disponibles!</p>";
+  }
 }
 
 document.getElementById("apunteForm").addEventListener("submit",function(e){
   e.preventDefault();
-
   const d=datos();
   d.apuntes.push({
     titulo:document.getElementById("apunteTitulo").value,
     texto:document.getElementById("apunteTexto").value
   });
-
   guardarDatos(d);
   this.reset();
   actualizar();
@@ -1424,15 +1748,13 @@ document.getElementById("apunteForm").addEventListener("submit",function(e){
 function renderApuntes(){
   const contenedor=document.getElementById("listaApuntes");
   if(!usuario||!contenedor)return;
-
   const lista=datos().apuntes||[];
-
   contenedor.innerHTML=lista.length?
     lista.map((x,i)=>`
       <div class="card">
         <h3>${escapar(x.titulo)}</h3>
         <p style="white-space:pre-wrap">${escapar(x.texto)}</p>
-        <button onclick="borrarApunte(${i})">Eliminar</button>
+        <button type="button" onclick="borrarApunte(${i})">Eliminar</button>
       </div>
     `).join("")
     :"<p>Todavía no has guardado apuntes.</p>";
@@ -1445,17 +1767,40 @@ function borrarApunte(i){
   actualizar();
 }
 
+document.getElementById("fotoPerfil").addEventListener("change",function(){
+  const archivo=this.files[0];
+  if(!archivo)return;
+  if(archivo.size>2*1024*1024){alert("La fotografía no debe superar 2 MB.");this.value="";return;}
+  if(!["image/png","image/jpeg","image/webp"].includes(archivo.type)){alert("Selecciona una imagen PNG, JPG o WEBP.");this.value="";return;}
+  const lector=new FileReader();
+  lector.onload=()=>{const d=datos();d.fotoPerfil=lector.result;guardarDatos(d);actualizar();};
+  lector.readAsDataURL(archivo);
+});
+
+function eliminarFotoPerfil(){
+  const d=datos();
+  if(!d.fotoPerfil){
+    document.getElementById("mensajePerfil").textContent="No tienes una fotografía para eliminar.";
+    return;
+  }
+  d.fotoPerfil="";
+  guardarDatos(d);
+  document.getElementById("fotoPerfil").value="";
+  actualizar();
+  document.getElementById("mensajePerfil").textContent="Fotografía eliminada correctamente.";
+}
+
 function reiniciar(){
   if(!confirm("¿Quieres reiniciar tus puntos y estadísticas locales?"))return;
-
   const d=datos();
   d.puntos=0;
   d.aciertos=0;
   d.actividades=0;
-
   guardarDatos(d);
   actualizar();
 }
+
+prepararHistorialNavegacion();
 </script>
 
 </body>
